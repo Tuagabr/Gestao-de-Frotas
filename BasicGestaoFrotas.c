@@ -87,7 +87,7 @@ void cadastra_veiculo(struct veiculo frota[], int* totalVeiculo) {
     }while (strcmp(tipo, "Carro") && strcmp(tipo, "Moto") && strcmp(tipo, "Caminhao"));
     //strcmp() retorna 0 se as duas strings são iguais
     do {
-        get_int_option("Digite o ano de fabricação (1980 a 2025): ", &anoFab);
+        get_int_option("Digite o ano de fabricacao (1980 a 2025): ", &anoFab);
     }while((anoFab < MIN_ANOFAB) || (anoFab > MAX_ANOFAB));
     get_float_option("Digite a quilometragem atual: ", &quilometragem);
 
