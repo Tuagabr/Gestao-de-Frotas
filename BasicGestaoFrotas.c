@@ -32,7 +32,7 @@ int checa_placa(char placa[]) {
             if (placa[i] != '-') errado = 1;
         }else {
             if (placa[i] < '0' || placa[i] > '9') errado = 1;     //testa se o resto dos caracteres são números
-            if (i > 7) errado = 1;                                //testa se a placa tem o comprimento correto de 8 caracteres, contando com o -
+            if (i > COMPRIM_PLACA) errado = 1;                                //testa se a placa tem o comprimento correto de 8 caracteres, contando com o -
         }
 
         i++;
@@ -47,6 +47,18 @@ void get_str_option(char* frase, char* opt) {
     fgets(opt, MAX_STRING, stdin);
     fflush(stdin);
     opt[strcspn(opt, "\n")] = '\0'; //acha qualquer instância de \n na string placa e a substitui com '\0'.
+}
+
+void get_int_option(char* frase, int* opt) {
+    printf("%s", frase);
+    scanf("%d", opt);
+    fflush(stdin);
+}
+
+void get_float_option(char* frase, float* opt) {
+    printf("%s", frase);
+    scanf("%f", opt);
+    fflush(stdin);
 }
 
 void cadastra_veiculo(struct veiculo frota[], int* totalVeiculo) {
@@ -75,13 +87,9 @@ void cadastra_veiculo(struct veiculo frota[], int* totalVeiculo) {
     }while (strcmp(tipo, "Carro") && strcmp(tipo, "Moto") && strcmp(tipo, "Caminhao"));
     //strcmp() retorna 0 se as duas strings são iguais
     do {
-        printf("Digite o ano de fabricação (1980 a 2025): ");
-        scanf("%d", &anoFab);
-        fflush(stdin);
+        get_int_option("Digite o ano de fabricação (1980 a 2025): ", &anoFab);
     }while((anoFab < MIN_ANOFAB) || (anoFab > MAX_ANOFAB));
-    printf("Digite a quilometragem atual: ");
-    scanf("%f", &quilometragem);
-    fflush(stdin);
+    get_float_option("Digite a quilometragem atual: ", &quilometragem);
 
     *totalVeiculo = *totalVeiculo + 1;
     strcpy(frota[*totalVeiculo - 1].placa, placa);
