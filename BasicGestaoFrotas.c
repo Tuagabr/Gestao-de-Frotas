@@ -26,9 +26,9 @@ int checa_placa(char placa[]) {
 
     //código para checar se a placa inserida está no formato "ABC-1234":
     while (!errado && (placa[i] != '\0')) {
-        if (i <= 2) {                                             //para todos os 3 primeiros caracteres, testa se o caracter é uma letra maiúscula
+        if (i <= NUM_LETRAS) {                                             //para todos os NUM_LETRAS primeiros caracteres, testa se o caracter é uma letra maiúscula
             if ((placa[i] < 'A') || (placa[i] > 'Z')) errado = 1;
-        }else if (i == 3) {                                       //testa se o 4º caracter é um '-'
+        }else if (i == NUM_LETRAS + 1) {                                       //testa se o próximo caracter é um '-'
             if (placa[i] != '-') errado = 1;
         }else {
             if (placa[i] < '0' || placa[i] > '9') errado = 1;     //testa se o resto dos caracteres são números
