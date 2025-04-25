@@ -221,17 +221,32 @@ void atualiza_quilometragem(struct veiculo frota[], int totalVeiculo, char placa
     }else printf("Veiculo nao encontrado\n");
 }
 
+void imprime_frota(struct veiculo frota[], int totalVeiculo) {
+    if (frota == NULL) {
+        printf("Frota nao inicializada\n");
+        return;
+    }
+    if (totalVeiculo <= 0) {
+        printf("Nao ha veiculos no sistema\n");
+        return;
+    }
+
+    for (int i = 0; i < totalVeiculo; i++) {
+        printf("=== Veiculo %d ===\n", i + 1);
+        printf("Placa: %s\n", frota[i].placa);
+        printf("Tipo: %s\n", frota[i].tipo);
+    }
+}
+
 int exibe_menu() {
     int opt;
 
     printf("=== SISTEMA DE GERENCIAMENTO DE FROTA ===\n");
     printf("1. Cadastrar Veiculo\n2. Consultar Veiculo\n3. Gerar Relatorio de Frota\n");
-    printf("4. Atualizar Quilometragem\n5. Sair\n");
+    printf("4. Atualizar Quilometragem\n5. Imprimir Resumo de Frota\n6. Sair\n");
 
     do {
-        printf("Escolha uma opcao: ");
-        scanf("%d", &opt);
-        fflush(stdin);
+        get_int_option("Escolha uma opcao: ", &opt);
     }while(opt < 1 || opt > 5);
 
     return opt;

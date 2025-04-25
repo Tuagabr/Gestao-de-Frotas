@@ -34,9 +34,11 @@ int main(void) {
                 }else printf("Nao ha veiculos no sistema\n");
                 break;
 
-            case 5: printf("Fechando o Programa...\n");
+            case 5: imprime_frota(frota, totalVeiculo); break;
+
+            case 6: printf("Fechando o Programa...\n");
         }
-    }while (opt != 5);
+    }while (opt != 6);
 
     destroi_frota(frota);
     return 0;

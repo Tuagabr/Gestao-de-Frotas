@@ -75,4 +75,8 @@ int busca_placa(struct veiculo frota[], int totalVeiculo, char placa[]);
 //Busca a placa[] na frota e retorna o índice de onde foi achado.
 //Se não achar, retorna -1.
 
+void imprime_frota(struct veiculo frota[], int totalVeiculo);
+//Imprime uma lista de todos os veículos da frota de forma resumida, mostrando o número do veículo, a sua placa e o seu
+//tipo.
+
 #endif //BASICGESTAOFROTAS_H
