@@ -16,6 +16,10 @@
 //Comprimento de uma placa - 1. Diminuir o tanto que se retira de MAX_STRING vai aumentar a quantidade de números no
 //final da placa. Por exemplo, se for MAX_STRING - 1, o layout da placa se torna ABC-123456, em vez do padrão ABC-1234.
 //ATENÇÃO: O mínimo deve ser MAX_STRING - 1, para contar com o \0 do final de cada string.
+#define NUM_LETRAS 2
+//Número de letras antes do traço. Conta desde o zero, portanto um valor de 2 significa três letras. Mudar isto vai
+//aumentar o número de letras e, se modificada sozinha, diminuirá os dígitos numéricos da placa. Um NUM_LETRAS 3 faria
+//uma placa no estilo ABCD-123
 
 struct veiculo {
     char placa[MAX_STRING];
