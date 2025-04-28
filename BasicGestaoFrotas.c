@@ -247,7 +247,7 @@ int exibe_menu() {
 
     do {
         get_int_option("Escolha uma opcao: ", &opt);
-    }while(opt < 1 || opt > 5);
+    }while(opt < 1 || opt > 6);
 
     return opt;
 }
